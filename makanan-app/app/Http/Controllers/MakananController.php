@@ -3,18 +3,26 @@
 namespace App\Http\Controllers;
 use App\Models\makanan;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class MakananController extends Controller
 {
     /**
      * Display a listing of the resource.
-     */
+    */
+
     public function index()
     {
+        
         $makanans = makanan::all();
         return view('makanans.index', compact('makanans'));
     }
 
+
+    public function checkout(Request $request){
+        $makanans = makanan::all();
+        return view('orders.checkout', compact('makanans'));
+    }
     /**
      * Show the form for creating a new resource.
      */

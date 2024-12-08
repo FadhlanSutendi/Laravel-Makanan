@@ -16,4 +16,9 @@ class makanan extends Model
         'harga', 
         'kategori', 
         'deskripsi'];
-}
+
+        public function orders()
+        {
+            return $this->hasMany(Order::class);
+        }
+}   
